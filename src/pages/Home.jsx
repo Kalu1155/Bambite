@@ -58,7 +58,7 @@ const Home = () => {
             <div className="testimonial">
               <FaQuoteLeft className="quote-icon" />
               <p>Bambite has transformed how we handle reservations. Customers love it, and so do we!”</p>
-              <h4>- CEO Ebiyeibo Ayebamiente God'slove</h4>
+              <h4>- WIFE Ebiyeibo Ayebamiente God'slove</h4>
             </div>
             <div className="testimonial">
               <FaQuoteLeft className="quote-icon" />
