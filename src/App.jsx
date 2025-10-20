@@ -1,7 +1,7 @@
 import React from 'react'
 import { ToastContainer } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/ScroolToTop";
 import Home from './pages/Home';
 import About from './pages/About';
 import Menu from './pages/Menu';
