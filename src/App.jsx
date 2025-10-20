@@ -1,6 +1,7 @@
 import React from 'react'
 import { ToastContainer } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import Home from './pages/Home';
 import About from './pages/About';
 import Menu from './pages/Menu';
@@ -18,6 +19,7 @@ function App() {
       autoClose={3000} 
       style={{ zIndex: 99999 }}/>
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/about' element={<About/>} />

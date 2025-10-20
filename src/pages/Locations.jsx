@@ -98,7 +98,7 @@ const Locations = () => {
     <Navbar/>
     <div className="home-push">
        <div className="location-page container">
-        <h2>Find Restaurants Near You 📍</h2>
+        <h2 className="page-top">Find Restaurants Near You 📍</h2>
         <button className="pri-btn mb-3" onClick={detectLocation}>
           Detect My Location
         </button>
