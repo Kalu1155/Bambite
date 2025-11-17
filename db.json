@@ -1,0 +1,371 @@
+{
+  "bambite": [
+    {
+      "id": 0,
+      "name": "THE BAMBITE",
+      "email": "thebambite@bambite.com",
+      "role": "super_admin",
+      "password": "bambite_master123",
+      "permissions": [
+        "view_all_restaurants",
+        "manage_all_resAdmins",
+        "manage_all_users",
+        "view_all_orders",
+        "view_all_reservations",
+        "manage_roles_permissions",
+        "system_settings",
+        "view_system_logs",
+        "manage_api_tokens",
+        "create_resAdmin",
+        "suspend_or_activate_restaurant",
+        "view_all_reports",
+        "manage_subscriptions",
+        "full_crud_access"
+      ],
+      "systemAccess": {
+        "totalRestaurants": 45,
+        "totalUsers": 1500,
+        "totalStaff": 320,
+        "totalOrders": 9200,
+        "totalRevenue": 124000000,
+        "activeSubscriptions": 38,
+        "expiredSubscriptions": 7,
+        "uptime": "99.9%",
+        "serverRegion": "Global Cloud (AWS)"
+      },
+      "allRestaurants": [
+        {
+          "resId": 201,
+          "name": "Bambite Downtown",
+          "resAdmin": "Bambite Owner",
+          "status": "active",
+          "branches": 2,
+          "monthlyRevenue": 850000
+        },
+        {
+          "resId": 202,
+          "name": "TastyHub",
+          "resAdmin": "Tasty Admin",
+          "status": "active",
+          "branches": 3,
+          "monthlyRevenue": 670000
+        },
+        {
+          "resId": 203,
+          "name": "ChopLife Restaurant",
+          "resAdmin": "ChopLife Admin",
+          "status": "pending_verification",
+          "branches": 1,
+          "monthlyRevenue": 215000
+        }
+      ],
+      "userOverview": {
+        "totalCustomers": 1350,
+        "totalLoyaltyMembers": 120,
+        "recentSignups": [
+          {
+            "name": "Dauda Ibrahim",
+            "email": "daudaibm24@gmail.com"
+          },
+          {
+            "name": "Mary Jane",
+            "email": "maryjane@example.com"
+          }
+        ],
+        "mostActiveCustomers": [
+          {
+            "name": "Dauda Ibrahim",
+            "orders": 15
+          },
+          {
+            "name": "Ola Adeyemi",
+            "orders": 13
+          }
+        ]
+      },
+      "security": {
+        "twoFactorAuth": true,
+        "ipWhitelist": [
+          "127.0.0.1",
+          "10.0.0.2"
+        ],
+        "lastSystemAudit": "2025-10-15T12:00:00.000Z",
+        "auditLogs": [
+          {
+            "event": "Created new resAdmin account",
+            "target": "TastyHub Admin",
+            "timestamp": "2025-10-10T08:30:00.000Z"
+          },
+          {
+            "event": "Suspended restaurant",
+            "target": "ChopLife Restaurant",
+            "timestamp": "2025-09-25T09:15:00.000Z"
+          }
+        ]
+      },
+      "apiManagement": {
+        "totalActiveTokens": 145,
+        "revokedTokens": 8,
+        "rateLimit": {
+          "limit": 10000,
+          "remaining": 9750,
+          "resetAt": "2025-10-31T00:00:00.000Z"
+        }
+      },
+      "subscriptionControl": {
+        "plansAvailable": [
+          "Basic",
+          "Premium",
+          "Enterprise"
+        ],
+        "totalRevenueFromPlans": 18400000,
+        "renewalRemindersSent": 20
+      },
+      "systemReports": {
+        "globalSales": 12500000,
+        "averageDailyOrders": 310,
+        "activeCountries": 3,
+        "topRestaurant": "Bambite Downtown",
+        "topMenuItem": "Grilled Chicken"
+      },
+      "notifications": {
+        "email": true,
+        "push": true,
+        "systemAlerts": true
+      },
+      "profilePicture": "https://example.com/profiles/thebambite.jpg",
+      "bio": "THE BAMBITE — Creator and root administrator of the Bambite Multi-Restaurant Management Platform. Oversees all restaurants, users, and operations globally.",
+      "isActive": true,
+      "accountCreated": "2023-10-01T00:00:00.000Z",
+      "lastLogin": "2025-10-20T09:00:00.000Z",
+      "phoneNumber": "+2348000000000",
+      "gender": "Male",
+      "location": {
+        "city": "Abuja",
+        "state": "FCT",
+        "country": "Nigeria"
+      },
+      "languagePreference": "English",
+      "timeZone": "GMT+1"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Dauda Ibrahim",
+      "email": "daudaibm24@gmail.com",
+      "role": "user",
+      "password": "dauda123",
+      "favorites": [
+        "Pizza",
+        "Burger",
+        "Pasta"
+      ],
+      "orderHistory": [
+        {
+          "orderId": 1,
+          "items": [
+            "Pizza",
+            "Salad"
+          ],
+          "total": 2550,
+          "date": "2024-06-15"
+        },
+        {
+          "orderId": 2,
+          "items": [
+            "Burger",
+            "Fries"
+          ],
+          "total": 1500,
+          "date": "2024-06-20"
+        }
+      ],
+      "preferences": {
+        "spicyLevel": "medium",
+        "dietaryRestrictions": [
+          "vegetarian"
+        ]
+      },
+      "loyaltyPoints": 120,
+      "membershipTier": "Gold",
+      "notifications": {
+        "email": true,
+        "sms": false,
+        "push": true
+      },
+      "savedAddresses": [
+        {
+          "label": "Home",
+          "address": "123 Main St, Cityville"
+        },
+        {
+          "label": "Work",
+          "address": "456 Office Rd, Cityville"
+        }
+      ],
+      "paymentMethods": [
+        {
+          "type": "Credit Card",
+          "last4": "1234",
+          "expiry": "12/26"
+        },
+        {
+          "type": "PayPal",
+          "email": "daudaibm24@gmail.com",
+          "linked": true
+        },
+        {
+          "type": "Gift Card",
+          "balance": 5000
+        },
+        {
+          "type": "Bank Transfer",
+          "bankName": "Cityville Bank",
+          "accountNumber": "9876543210"
+        },
+        {
+          "type": "Mobile Payment",
+          "provider": "M-Pesa",
+          "phoneNumber": "+1234567890"
+        }
+      ],
+      "reviews": [
+        {
+          "itemId": 101,
+          "rating": 5,
+          "comment": "Delicious pizza, will order again!",
+          "date": "2024-06-18"
+        },
+        {
+          "itemId": 102,
+          "rating": 4,
+          "comment": "Great burger, but fries were a bit soggy.",
+          "date": "2024-06-22"
+        },
+        {
+          "itemId": 102,
+          "rating": 4,
+          "comment": "Great burger, but fries were a bit soggy.",
+          "date": "2024-06-22"
+        },
+        {
+          "resId": 103,
+          "rating": 4,
+          "comment": "Great Place, cozy atmosphere.",
+          "date": "2024-06-22"
+        }
+      ],
+      "dietaryPreferences": {
+        "cuisineTypes": [
+          "Italian",
+          "Mexican"
+        ],
+        "allergies": [
+          "nuts",
+          "gluten"
+        ]
+      },
+      "socialMediaLinks": {
+        "facebook": "fb.com/daudaibm",
+        "instagram": "instagram.com/daudaibm",
+        "twitter": "twitter.com/daudaibm"
+      },
+      "referralCode": "REF123DAUDA",
+      "accountCreated": "2023-11-10T14:48:00.000Z",
+      "lastLogin": "2024-06-25T09:15:00.000Z",
+      "isActive": true,
+      "profilePicture": "https://example.com/profiles/daudaibm.jpg",
+      "bio": "Food lover and tech enthusiast.",
+      "phoneNumber": "+1234567890",
+      "dateOfBirth": "1990-05-15",
+      "gender": "Male",
+      "location": {
+        "city": "Cityville",
+        "state": "Stateville",
+        "country": "Countryland"
+      },
+      "languagePreference": "English",
+      "timeZone": "GMT+1",
+      "securityQuestions": [
+        {
+          "question": "What is your mother's maiden name?",
+          "answer": "Smith"
+        },
+        {
+          "question": "What was the name of your first pet?",
+          "answer": "Buddy"
+        }
+      ],
+      "twoFactorAuth": true,
+      "marketingPreferences": {
+        "promotionalEmails": true,
+        "smsOffers": false,
+        "thirdPartySharing": false
+      },
+      "subscriptionPlan": {
+        "planName": "Premium",
+        "renewalDate": "2024-12-01",
+        "features": [
+          "Free Delivery",
+          "Exclusive Discounts",
+          "Priority Support"
+        ]
+      },
+      "apiTokens": [
+        {
+          "token": "abcd1234efgh5678ijkl9012mnop3456",
+          "createdAt": "2024-01-15T10:00:00.000Z",
+          "expiresAt": "2025-01-15T10:00:00.000Z",
+          "scopes": [
+            "read_orders",
+            "write_orders"
+          ],
+          "lastUsed": "2024-06-20T12:30:00.000Z",
+          "isActive": true,
+          "deviceInfo": "Chrome on Windows 10",
+          "ipAddress": "",
+          "usageCount": 150,
+          "rateLimit": {
+            "limit": 1000,
+            "remaining": 850,
+            "resetAt": "2024-06-30T00:00:00.000Z",
+            "overLimit": false,
+            "throttled": false,
+            "penaltyBox": false,
+            "burstCapacity": 200
+          }
+        }
+      ]
+    },
+    {
+      "id": "0efa",
+      "name": "Chiamaka Lilybet",
+      "username": "chiamaka123",
+      "email": "chiamaka123@gmail.com",
+      "password": "1234567"
+    },
+    {
+      "id": "b316",
+      "name": "David  Chinemerem kalu",
+      "username": "lucideME",
+      "email": "kaludavid424@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "fb3b",
+      "name": "David  Chinemerem kalu",
+      "username": "lucideME",
+      "email": "kaludavid424@gmail.com",
+      "password": "1234567890"
+    }
+  ],
+  "resAdmins": [],
+  "restaurants": [
+    {
+      "id":"ri1"
+      
+    }
+  ],
+  "staff": []
+}

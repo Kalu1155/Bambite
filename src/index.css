@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+a {
+    font-weight: 500;
+    color: #1FAF4B;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: #1FAF4B;
+}
+
+
+/* === Override Ant Design Default Colors === */
+
+.ant-layout {
+    background-color: #4d6765 !important;
+    /* your primary background */
+}
+
+.ant-layout-sider,
+.ant-menu-dark,
+.ant-menu-dark .ant-menu-item {
+    background-color: #4d6765 !important;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+    background-color: #5a7573 !important;
+}
+
+.ant-layout-header {
+    background-color: #ffffff !important;
+}
+
+.ant-layout-content {
+    background-color: #f9f9f9 !important;
+}
+
+.ant-layout-sider,
+.ant-menu-dark,
+.ant-menu-dark .ant-menu-item {
+    background-color: #4d6765 !important;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+    background-color: #5a7573 !important;
+}
+
+
+/* button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+} */
+
+
+/* button:hover {
+  border-color: #1FAF4B;
+} */
+
+
+/* button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+} */

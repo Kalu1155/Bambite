@@ -1,0 +1,97 @@
+@use "navbar.scss";
+@use "home.scss";
+@use "auth.scss";
+@use "menu.scss";
+@use "location.scss";
+@use "restaurants.scss";
+@use "resprofile.scss";
+@use "supa_dasboard.scss";
+@use "loader.scss";
+@use "merchant.scss";
+@use "store.scss";
+:root {
+    --primary: #417141;
+    // --primary: #1faf4b; // green (brand)
+    --secondary: #333; // dark text
+    // --light: rgb(232, 227, 227);
+    --light: #f8f9fa; // background
+    --danger: #e74c3c; // red (alerts)
+    --font: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--light);
+    color: var(--secondary);
+}
+
+.pri-btn {
+    padding: 6px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.3s;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    &:hover {
+        transform: translateY(-3px);
+        background: var(--primary);
+    }
+}
+.pri-btn:disabled {
+  background-color: #fff;
+  color: #27ae60; 
+  cursor: not-allowed;
+  border: none;
+}
+.sec-btn {
+    padding: 6px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.3s;
+    background-color: white;
+    color: var(--primary);
+    border: none;
+    &:hover {
+        transform: translateY(-3px);
+    }
+}
+
+.home-push {
+    padding-top: 9em;
+}
+
+.p-top {
+    text-align: center;
+    font-size: 100px;
+    font-weight: 800;
+    font-style: italic;
+}
+.small-text{
+    font-size: 7px;
+    align-self: center;
+}
+.page-top {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--secondary);
+}
