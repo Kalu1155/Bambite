@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import waitingImg from "../../assets/images/Waiting.gif";
+import waitingImg from "../../assets/images/waiting.gif";
 import { toast } from "react-toastify";
 // import "../../styles/AwaitVerification.css";
 

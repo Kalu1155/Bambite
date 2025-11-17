@@ -21,7 +21,8 @@ const RegisterRestaurant = () => {
       toast.success("Restaurant registered successfully! 🎉");
 
       // Redirect merchant to their store dashboard
-      navigate(`/merchant/store/${generatedStoreId}/store-dashboard`);
+      navigate("/merchant/dashboard/");
+      // navigate(`/merchant/dashboard/${generatedStoreId}/merchant/dashboard`);
     }, 2000);
   };
 
