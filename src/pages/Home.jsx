@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 // import becomeAMerchant from "../assets/images/become-a-merchant.svg"
 import orderFood from "../assets/images/order-food.gif"
-import becomeAMerchant from "../assets/images/street-food.gif"
+import becomeAMerchant from "../assets/images/street-Food.gif"
 import growbusiness from "../assets/images/video-tutorial-cuate.svg"
 import Navbar from '../components/Navbar'
 import { FaConciergeBell, FaUtensils, FaCalendarCheck, FaChartLine, FaQuoteLeft } from "react-icons/fa";
