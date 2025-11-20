@@ -4,15 +4,18 @@ import { useAuth } from "../context/AuthContext";
 const ProtectedRoute = ({ children, allowedRole }) => {
   const { currentUser } = useAuth();
 
-  if (!currentUser) {
-    return <Navigate to="/supa-admin/login" />;
-  }
+  if (!currentUser) return <Navigate to="/supa-admin/login" />;
 
   if (allowedRole && currentUser.role !== allowedRole) {
-    return <Navigate to="/" />;
+    return <Navigate to="/supa-admin/login" />;
   }
 
   return children;
 };
 
+
 export default ProtectedRoute;
+
+
+
+
