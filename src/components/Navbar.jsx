@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
 import { LuArrowRight } from "react-icons/lu";
+import { LuUser } from "react-icons/lu";
 import logo from "../assets/images/bbmainedit.png";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoggedIn] = useState(true);
+  const username = "Kalu";
 
   return (
     <div className="navbar">
@@ -46,11 +49,22 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <p className="nav-links login-btn">
-        <NavLink to="/auth" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-          Log in <LuArrowRight />
-        </NavLink>
-      </p>
+      {!isLoggedIn ? (
+        <p className="nav-links login-btn">
+          <NavLink to="/auth" className={({ isActive }) => (isActive ? "active-nav" : "")}>
+            Log in <LuArrowRight />
+          </NavLink>
+        </p>
+      ) : (
+        <div className="nav-links login-btn ">
+          <NavLink to="/auth" className={({ isActive }) => (isActive ? "active-nav" : "")}>
+            <LuUser size={30} className={({ isActive }) => (isActive ? "active-nav" : "")} />
+            <span className="username">{username}</span>
+          </NavLink>
+
+        </div>
+      )}
+
 
       {/* Mobile nav */}
       <nav id="site-navigator-mobile" className={`navigator-mobile ${menuOpen ? "active" : ""}`}>
@@ -78,21 +92,32 @@ const Navbar = () => {
               MENU
             </NavLink>
           </li>
-           <li>
+          <li>
             <NavLink to="/restaurants" className={({ isActive }) => (isActive ? "active-nav" : "")}>
               RESTAURANTS
             </NavLink>
           </li>
-           <li>
+          <li>
             <NavLink to="/locations" className={({ isActive }) => (isActive ? "active-nav" : "")}>
               LOCATIONS
             </NavLink>
           </li>
-           <li>
-            <NavLink to="/auth" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-              Log in <LuArrowRight />
-            </NavLink>
-          </li>
+          {!isLoggedIn ? (
+            <li>
+              <NavLink to="/auth" className={({ isActive }) => (isActive ? "active-nav" : "")}>
+                Log in <LuArrowRight />
+              </NavLink>
+            </li>
+          ) : (
+            <li>
+              <NavLink to="/" className={({ isActive }) => (isActive ? "active-nav" : "")}>
+                <LuUser size={26} className={({ isActive }) => (isActive ? "active-nav" : "")} />
+                <span>{username}</span>
+              </NavLink>
+
+            </li>
+          )}
+
         </ul>
       </nav>
     </div>

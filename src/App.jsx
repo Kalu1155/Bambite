@@ -74,6 +74,7 @@ function App() {
 
           {/* Customer Router */}
           <Route path="user" element={<CustomerDashboard />} />
+          
           {/* Merchant Routes */}
           <Route path="/become-a-merchant" element={<MerchantAuth />} />
           <Route path="/merchant/subscription" element={<MerchantSubscription />} />

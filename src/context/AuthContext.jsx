@@ -1,51 +1,38 @@
 import { createContext, useState, useContext, useEffect } from "react";
+import API from "../api/adminApi"; // <-- use axios instance
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(() => {
-    // ✅ check localStorage on page load
-    const saved = localStorage.getItem("bambite_user");
+    const saved = localStorage.getItem("adminInfo");
     return saved ? JSON.parse(saved) : null;
   });
 
-  // ✅ whenever currentUser changes, save it
   useEffect(() => {
     if (currentUser) {
-      localStorage.setItem("bambite_user", JSON.stringify(currentUser));
+      localStorage.setItem("adminInfo", JSON.stringify(currentUser));
     } else {
-      localStorage.removeItem("bambite_user");
+      localStorage.removeItem("adminInfo");
     }
   }, [currentUser]);
 
   const login = async (email, password) => {
-    const [bambiteRes, usersRes] = await Promise.all([
-      fetch("http://localhost:5000/bambite"),
-  fetch("http://localhost:5000/resAdmins"),
-  fetch("http://localhost:5000/staff"),
-  fetch("http://localhost:5000/users")
-    ]);
+    const res = await API.post("/admin/login", { email, password });
 
-    const bambiteAdmins = await bambiteRes.json();
-    const users = await usersRes.json();
+    // Save token + user
+    localStorage.setItem("adminToken", res.data.token);
+    localStorage.setItem("adminInfo", JSON.stringify(res.data.admin));
 
-    const found =
-      bambiteAdmins.find(
-        (u) => u.email === email && u.password === password
-      ) ||
-      users.find((u) => u.email === email && u.password === password);
+    setCurrentUser(res.data.admin);
 
-    if (found) {
-      setCurrentUser(found);
-      return found;
-    } else {
-      throw new Error("Invalid credentials");
-    }
+    return res.data.admin;
   };
 
   const logout = () => {
+    localStorage.removeItem("adminToken");
+    localStorage.removeItem("adminInfo");
     setCurrentUser(null);
-    localStorage.removeItem("bambite_user");
   };
 
   return (

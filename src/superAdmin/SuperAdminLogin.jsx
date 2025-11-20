@@ -8,20 +8,23 @@ const SuperAdminLogin = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const user = await login(formData.email, formData.password);
-      if (user.role === "super_admin") {
-        toast.success("Welcome back, THE BAMBITE!");
-        navigate("/supa-admin");
-      } else {
-        toast.error("Access Denied");
-      }
-    } catch (err) {
-      toast.error("Invalid login credentials");
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const user = await login(formData.email, formData.password);
+
+    if (user.role !== "super_admin") {
+      toast.error("Access Denied");
+      return;
     }
-  };
+
+    toast.success("Welcome back, THE BAMBITE 👑");
+    navigate("/supa-admin");
+  } catch (err) {
+    toast.error(err?.response?.data?.message || "Invalid login credentials");
+  }
+};
+
 
   return (
     <>

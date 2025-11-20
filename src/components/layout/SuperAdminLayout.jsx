@@ -23,24 +23,26 @@ const SuperAdminLayout = () => {
     navigate(e.key);
   };
 
-  useEffect(() => {
-    try {
-      const loggedAdmin = JSON.parse(localStorage.getItem("bambite_user"));
-      if (loggedAdmin && loggedAdmin.name) {
-        setUsername(loggedAdmin.name);
-      } else {
-        window.location.href = "/supa-admin/login";
-      }
-    } catch (error) {
-      console.error("Failed to parse user data:", error);
+ useEffect(() => {
+  try {
+    const loggedAdmin = JSON.parse(localStorage.getItem("adminInfo"));
+    if (loggedAdmin && loggedAdmin.name) {
+      setUsername(loggedAdmin.name);
+    } else {
       window.location.href = "/supa-admin/login";
     }
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("bambite_user");
+  } catch (error) {
+    console.error("Failed to parse user data:", error);
     window.location.href = "/supa-admin/login";
-  };
+  }
+}, []);
+
+const handleLogout = () => {
+  localStorage.removeItem("adminInfo");
+  localStorage.removeItem("adminToken");
+  window.location.href = "/supa-admin/login";
+};
+
 
   const items = [
     { label: "Overview", key: "/supa-admin", icon: <LucideHome /> },
