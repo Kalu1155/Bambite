@@ -1,50 +1,54 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScroolToTop";
-import ProtectedRoute from './components/ProtectedRoute';
-import { AuthProvider } from './context/AuthContext';
-import PageLoader from './components/PageLoader';
+import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./context/AuthContext";
+import PageLoader from "./components/PageLoader";
 // Supper admin Imports
-import SuperAdminLogin from './superAdmin/SuperAdminLogin';
-import SuperAdminLayout from './components/layout/SuperAdminLayout';
-import Dashboard from './superAdmin/Dashboard';
-import Restaurants from './superAdmin/AllRes';
-import Users from './superAdmin/AllUsers';
-import Settings from './superAdmin/Settings';
+import SuperAdminLogin from "./superAdmin/SuperAdminLogin";
+import SuperAdminLayout from "./components/layout/SuperAdminLayout";
+import Dashboard from "./superAdmin/Dashboard";
+import Restaurants from "./superAdmin/AllRes";
+import Users from "./superAdmin/AllUsers";
+import Settings from "./superAdmin/Settings";
 // Public imports
-import Home from './pages/Home';
-import About from './pages/About';
-import Menu from './pages/Menu';
-import Locations from './pages/Locations';
-import Auth from './pages/Auth';
-import Service from './pages/Service';
-import RestaurantsPublic from './pages/Restaurants';
-import ResProfile from './pages/ResProfile';
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Menu from "./pages/Menu";
+import Locations from "./pages/Locations";
+import Auth from "./pages/Auth";
+import Service from "./pages/Service";
+import RestaurantsPublic from "./pages/Restaurants";
+import ResProfile from "./pages/ResProfile";
 // Merchant Import
-import MerchantAuth from './pages/merchant/MerchantAuth'
-import CustomerDashboard from './pages/customer/CustomerDashboard';
-import MerchantSubscription from './pages/merchant/MerchantSubscription';
-import AwaitVerification from './pages/merchant/AwaitVerification';
-import RegisterRestaurant from './pages/merchant/RegisterRestaurant';
-import MerchantPayment from './pages/merchant/MerchantPayment';
-import EmailSent from './pages/merchant/EmailSent';
-import DashboardHome from './pages/merchant/MerchnatDashboard/DashboardHome';
-import Branches from './pages/merchant/MerchnatDashboard/Stores';
-import Staff from './pages/merchant/MerchnatDashboard/Staffs';
-import MerSettings from './pages/merchant/MerchnatDashboard/Settings';
-import BranchDetails from './pages/merchant/MerchnatDashboard/BranchDetails';
-import StoreLayout from './pages/merchant/MerchnatDashboard/StroeDetails/StoreLayout';
-import StoreDashboard from './pages/merchant/MerchnatDashboard/StroeDetails/StoreDashboard';
-import StoreMenu from './pages/merchant/MerchnatDashboard/StroeDetails/StoreMenu';
-import StoreOrders from './pages/merchant/MerchnatDashboard/StroeDetails/StoreOrders';
-import StoreCustomer from './pages/merchant/MerchnatDashboard/StroeDetails/StoreCustomer';
-import BusinessHours from './pages/merchant/MerchnatDashboard/StroeDetails/BusinessHours';
-import StoreWallet from './pages/merchant/MerchnatDashboard/StroeDetails/StoreWallet';
-import Payments from './pages/merchant/MerchnatDashboard/StroeDetails/Payments';
-import General from './pages/merchant/MerchnatDashboard/StroeDetails/Settings/General';
-import PickupAndDelivery from './pages/merchant/MerchnatDashboard/StroeDetails/Settings/PickupAndDelivery';
+import MerchantAuth from "./pages/merchant/MerchantAuth";
+import MerchantSubscription from "./pages/merchant/MerchantSubscription";
+import AwaitVerification from "./pages/merchant/AwaitVerification";
+import RegisterRestaurant from "./pages/merchant/RegisterRestaurant";
+import MerchantPayment from "./pages/merchant/MerchantPayment";
+import EmailSent from "./pages/merchant/EmailSent";
+import DashboardHome from "./pages/merchant/MerchnatDashboard/DashboardHome";
+import Branches from "./pages/merchant/MerchnatDashboard/Stores";
+import Staff from "./pages/merchant/MerchnatDashboard/Staffs";
+import MerSettings from "./pages/merchant/MerchnatDashboard/Settings";
+import BranchDetails from "./pages/merchant/MerchnatDashboard/BranchDetails";
+import StoreLayout from "./pages/merchant/MerchnatDashboard/StroeDetails/StoreLayout";
+import StoreDashboard from "./pages/merchant/MerchnatDashboard/StroeDetails/StoreDashboard";
+import StoreMenu from "./pages/merchant/MerchnatDashboard/StroeDetails/StoreMenu";
+import StoreOrders from "./pages/merchant/MerchnatDashboard/StroeDetails/StoreOrders";
+import StoreCustomer from "./pages/merchant/MerchnatDashboard/StroeDetails/StoreCustomer";
+import BusinessHours from "./pages/merchant/MerchnatDashboard/StroeDetails/BusinessHours";
+import StoreWallet from "./pages/merchant/MerchnatDashboard/StroeDetails/StoreWallet";
+import Payments from "./pages/merchant/MerchnatDashboard/StroeDetails/Payments";
+import General from "./pages/merchant/MerchnatDashboard/StroeDetails/Settings/General";
+import PickupAndDelivery from "./pages/merchant/MerchnatDashboard/StroeDetails/Settings/PickupAndDelivery";
+// Customer Import
+import CustomerDashboard from "./pages/customer/CustomerDashboard";
+import CusRestaurant from "./pages/customer/CusRestaurant";
+import CusResProfile from "./pages/customer/CusResProfile";
+import CusWallet from "./pages/customer/CusWallet";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -58,7 +62,11 @@ function App() {
   if (loading) return <PageLoader />;
   return (
     <AuthProvider>
-      <ToastContainer position="top-right" autoClose={3000} style={{ zIndex: 99999 }} />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        style={{ zIndex: 99999 }}
+      />
       <Router>
         <ScrollToTop />
         <Routes>
@@ -74,12 +82,24 @@ function App() {
 
           {/* Customer Router */}
           <Route path="user" element={<CustomerDashboard />} />
-          
+          <Route path="cus-resdis" element={<CusRestaurant />} />
+          <Route path="cus-respro" element={<CusResProfile />} />
+          <Route path="cus-wallet" element={<CusWallet />} />
+
           {/* Merchant Routes */}
           <Route path="/become-a-merchant" element={<MerchantAuth />} />
-          <Route path="/merchant/subscription" element={<MerchantSubscription />} />
-          <Route path="/merchant/await-verification" element={<AwaitVerification />} />
-          <Route path="/merchant/register-restaurant" element={<RegisterRestaurant />} />
+          <Route
+            path="/merchant/subscription"
+            element={<MerchantSubscription />}
+          />
+          <Route
+            path="/merchant/await-verification"
+            element={<AwaitVerification />}
+          />
+          <Route
+            path="/merchant/register-restaurant"
+            element={<RegisterRestaurant />}
+          />
           <Route path="/merchant/payment" element={<MerchantPayment />} />
           <Route path="/merchant/email-sent" element={<EmailSent />} />
           {/* Merchant Dashboard */}
@@ -93,16 +113,15 @@ function App() {
             <Route path="store-dashboard" element={<StoreDashboard />} />
 
             <Route path="store-menu" element={<StoreMenu />} />
-             <Route path="store-orders" element={<StoreOrders />} />
-              <Route path="store-customers" element={<StoreCustomer />} />
-               <Route path="store-bh" element={<BusinessHours />} />
-                <Route path="store-wallet" element={<StoreWallet />} />
-                 <Route path="store-payment" element={<Payments />} />
-                  <Route path="settings/general" element={<General />} />
-                   <Route path="settings/store-pd" element={<PickupAndDelivery />} />
+            <Route path="store-orders" element={<StoreOrders />} />
+            <Route path="store-customers" element={<StoreCustomer />} />
+            <Route path="store-bh" element={<BusinessHours />} />
+            <Route path="store-wallet" element={<StoreWallet />} />
+            <Route path="store-payment" element={<Payments />} />
+            <Route path="settings/general" element={<General />} />
+            <Route path="settings/store-pd" element={<PickupAndDelivery />} />
           </Route>
           {/* <Route path="/merchant/stores/:id" element={<BranchDetails />} /> */}
-
 
           {/* Super Admin Login */}
           <Route path="/supa-admin/login" element={<SuperAdminLogin />} />

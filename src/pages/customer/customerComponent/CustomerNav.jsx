@@ -1,104 +1,93 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
-import { LuArrowRight } from "react-icons/lu";
+import {
+  RiHome2Line,
+  RiRestaurantLine,
+  RiMapPinLine,
+  RiWallet3Line,
+  RiNotification3Line,
+} from "react-icons/ri";
 import logo from "../../../assets/images/bbmainedit.png";
+import { MdOutlineShoppingCart } from "react-icons/md";
+import { TbHistoryToggle } from "react-icons/tb";
 
 const CustomerNav = () => {
-      const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <>
-     <div className="navbar">
-          <NavLink to="/" className="logo">
-            <img src={logo} alt="BAMBITE logo" />
-          </NavLink>
-    
-          <ul className="nav-links">
-            {/* <li>
-              <NavLink to="/" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                HOME
-              </NavLink>
-            </li> */}
-            <li>
-              <NavLink to="/about" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                ABOUT
-              </NavLink>
-            </li>
-            {/* <li>
-              <NavLink to="/service" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                SERVICE
-              </NavLink>
-            </li> */}
-            <li>
-              <NavLink to="/menu" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                MENU
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/restaurants" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                RESTAURANTS
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/locations" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                LOCATIONS
-              </NavLink>
-            </li>
-          </ul>
-    
-          <p className="nav-links login-btn">
-            <NavLink to="/auth" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-              Profile <LuArrowRight />
-            </NavLink>
-          </p>
-    
-          {/* Mobile nav */}
-          <nav id="site-navigator-mobile" className={`navigator-mobile ${menuOpen ? "active" : ""}`}>
-            <button className="navigator-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-              {menuOpen ? <RiCloseLine size={28} /> : <RiMenu3Line size={28} />}
-            </button>
-            <ul className="menu">
-              {/* <li>
-                <NavLink to="/" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                  HOME
-                </NavLink>
-              </li> */}
-              <li>
-                <NavLink to="/about" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                  ABOUT
-                </NavLink>
-              </li>
-              {/* <li>
-                <NavLink to="/service" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                  SERVICE
-                </NavLink>
-              </li> */}
-              <li>
-                <NavLink to="/menu" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                  MENU
-                </NavLink>
-              </li>
-               <li>
-                <NavLink to="/restaurants" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                  RESTAURANTS
-                </NavLink>
-              </li>
-               <li>
-                <NavLink to="/locations" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                  LOCATIONS
-                </NavLink>
-              </li>
-               <li>
-                <NavLink to="/auth" className={({ isActive }) => (isActive ? "active-nav" : "")}>
-                  Log in <LuArrowRight />
-                </NavLink>
-              </li>
-            </ul>
-          </nav>
+      {/* ================= DESKTOP/TABLET SIDEBAR ================= */}
+      <aside className="customer-sidebar">
+        <div className="sidebar-header">
+          <img src={logo} alt="BAMBITE" />
         </div>
-    </>
-  )
-}
 
-export default CustomerNav
+        <ul className="sidebar-links">
+          <li>
+            <NavLink to="/user">
+              <RiHome2Line /> <span>Home</span>
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/cus-resDis">
+              <RiRestaurantLine /> <span>Restaurants</span>
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/locations">
+              <RiMapPinLine /> <span>Locations</span>
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/cus-wallet">
+              <RiWallet3Line /> <span>Wallet</span>
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/notifications">
+              <RiNotification3Line /> <span>Notifications</span>
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/history">
+              <TbHistoryToggle /> <span>History </span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/profile">
+              <MdOutlineShoppingCart /> <span>Cart</span>
+            </NavLink>
+          </li>
+        </ul>
+      </aside>
+
+      {/* ================= MOBILE BOTTOM NAV ================= */}
+      <nav className="customer-bottom-nav">
+        <NavLink to="/user">
+          <RiHome2Line size="40px" />
+        </NavLink>
+
+        <NavLink to="/locations">
+          <RiMapPinLine size="40px" />
+        </NavLink>
+
+        <NavLink to="/cus-resdis">
+          <RiRestaurantLine size="40px" />
+        </NavLink>
+
+        <NavLink to="/cus-wallet">
+          <RiWallet3Line size="40px" />
+        </NavLink>
+
+        <NavLink to="/cart">
+          <MdOutlineShoppingCart size="40px" />
+        </NavLink>
+      </nav>
+    </>
+  );
+};
+
+export default CustomerNav;
