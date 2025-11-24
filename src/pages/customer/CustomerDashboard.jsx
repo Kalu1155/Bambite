@@ -7,12 +7,12 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import { MapPin, Star } from "lucide-react";
 import CustomerNav from "./customerComponent/CustomerNav";
+import TopBar from "./customerComponent/TopBar";
 import { FaMapMarkerAlt, FaChair, FaShoppingBag } from "react-icons/fa";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import dummyImg from "../../assets/images/food_3.jpeg";
 import CardModal from "../../components/menu/CardModal";
-import TopBar from "./customerComponent/TopBar";
 
 const CustomerDashboard = () => {
   // ================= MODAL STATE =================

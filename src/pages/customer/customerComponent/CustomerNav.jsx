@@ -58,7 +58,7 @@ const CustomerNav = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/profile">
+            <NavLink to="/cart">
               <MdOutlineShoppingCart /> <span>Cart</span>
             </NavLink>
           </li>

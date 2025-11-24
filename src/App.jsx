@@ -50,6 +50,7 @@ import CusRestaurant from "./pages/customer/CusRestaurant";
 import CusResProfile from "./pages/customer/CusResProfile";
 import CusWallet from "./pages/customer/CusWallet";
 import CusWalletSettings from "./pages/customer/CusWalletSettings";
+import Cart from "./pages/customer/Cart";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -87,6 +88,7 @@ function App() {
           <Route path="cus-respro" element={<CusResProfile />} />
           <Route path="cus-wallet" element={<CusWallet />} />
           <Route path="cus-walletsettings" element={<CusWalletSettings />} />
+          <Route path="/cart" element={<Cart />} />
 
           {/* Merchant Routes */}
           <Route path="/become-a-merchant" element={<MerchantAuth />} />
