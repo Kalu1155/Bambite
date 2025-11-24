@@ -190,7 +190,7 @@
 
 .customer-home {
   padding-top: 90px;  // for topbar
-  padding-left: 210px;  // for sidebar
+  padding-left: 230px;  // for sidebar
 
   @media (max-width: 768px) {
     padding-left: 0;
@@ -273,6 +273,8 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  // width: 90%;
+  
 }
 
 .restaurant-img {

@@ -7,6 +7,7 @@ import {
   RiWallet3Line,
   RiNotification3Line,
 } from "react-icons/ri";
+import { LuHouse, LuMapPin, LuUtensils, LuWallet } from "react-icons/lu";
 import logo from "../../../assets/images/bbmainedit.png";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { TbHistoryToggle } from "react-icons/tb";
@@ -23,25 +24,25 @@ const CustomerNav = () => {
         <ul className="sidebar-links">
           <li>
             <NavLink to="/user">
-              <RiHome2Line /> <span>Home</span>
+              <LuHouse /> <span>Home</span>
             </NavLink>
           </li>
 
           <li>
             <NavLink to="/cus-resDis">
-              <RiRestaurantLine /> <span>Restaurants</span>
+              <LuUtensils /> <span>Restaurants</span>
             </NavLink>
           </li>
 
           <li>
             <NavLink to="/locations">
-              <RiMapPinLine /> <span>Locations</span>
+              <LuMapPin /> <span>Locations</span>
             </NavLink>
           </li>
 
           <li>
             <NavLink to="/cus-wallet">
-              <RiWallet3Line /> <span>Wallet</span>
+              <LuWallet /> <span>Wallet</span>
             </NavLink>
           </li>
 
@@ -67,23 +68,23 @@ const CustomerNav = () => {
       {/* ================= MOBILE BOTTOM NAV ================= */}
       <nav className="customer-bottom-nav">
         <NavLink to="/user">
-          <RiHome2Line size="40px" />
+          <LuHouse size="25px" />
         </NavLink>
 
         <NavLink to="/locations">
-          <RiMapPinLine size="40px" />
+          <LuMapPin size="25px" />
         </NavLink>
 
         <NavLink to="/cus-resdis">
-          <RiRestaurantLine size="40px" />
+          <LuUtensils size="25px" />
         </NavLink>
 
         <NavLink to="/cus-wallet">
-          <RiWallet3Line size="40px" />
+          <LuWallet size="25px" />
         </NavLink>
 
         <NavLink to="/cart">
-          <MdOutlineShoppingCart size="40px" />
+          <MdOutlineShoppingCart size="25px" />
         </NavLink>
       </nav>
     </>
