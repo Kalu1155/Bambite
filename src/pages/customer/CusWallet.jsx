@@ -4,7 +4,7 @@ import CustomerNav from "./customerComponent/CustomerNav";
 import WithdrawModal from "../../components/WithdrawModal";
 import FundWalletModal from "../../components/FundWalletModal";
 import TransactionDetailsModal from "../../components/TransactionDetailsModal";
-
+import { Link } from "react-router-dom";
 import {
   RiArrowUpCircleLine,
   RiArrowDownCircleLine,
@@ -23,6 +23,11 @@ const CusWallet = () => {
   const [showDetails, setShowDetails] = useState(false);
   const [selectedTx, setSelectedTx] = useState(null);
   const [filter, setFilter] = useState("All");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+
   const [history, setHistory] = useState([
     {
       id: 1,
@@ -70,6 +75,7 @@ const CusWallet = () => {
       status: "Failed",
     },
   ]);
+
   const getIconByType = (type) => {
     switch (type) {
       case "Deposit":
@@ -84,6 +90,57 @@ const CusWallet = () => {
         return <RiRestaurantLine />;
     }
   };
+  // Convert history date to real JS Date
+  const parseDate = (dateStr) => {
+    try {
+      return new Date(dateStr.replace("•", ""));
+    } catch {
+      return new Date();
+    }
+  };
+
+  // 2️⃣ STATUS/TYPE FILTER
+
+  // Filter by date range
+  const dateFilteredHistory = history.filter((tx) => {
+    const txDate = parseDate(tx.date);
+
+    const start = startDate ? new Date(startDate) : null;
+    const end = endDate ? new Date(endDate + " 23:59") : null;
+
+    if (start && txDate < start) return false;
+    if (end && txDate > end) return false;
+
+    return true;
+  });
+
+  // 2️⃣ STATUS/TYPE FILTER
+  const statusFiltered =
+    filter === "All"
+      ? dateFilteredHistory
+      : dateFilteredHistory.filter((tx) =>
+          filter === "Success" || filter === "Pending" || filter === "Failed"
+            ? tx.status === filter
+            : tx.type === filter
+        );
+
+  // 3️⃣ PAGINATION
+  const totalPages = Math.ceil(statusFiltered.length / itemsPerPage);
+
+  const paginatedHistory = statusFiltered.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  // Handle page changes
+  const nextPage = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
+
   const handleFundWallet = (amount) => {
     const newTx = {
       id: history.length + 1,
@@ -121,14 +178,15 @@ const CusWallet = () => {
     setHistory([newTx, ...history]);
   };
 
-  const filteredHistory =
-    filter === "All"
-      ? history
-      : history.filter((tx) =>
-          filter === "Success" || filter === "Pending" || filter === "Failed"
-            ? tx.status === filter
-            : tx.type === filter
-        );
+  // // Status/Type Filter
+  // const statusFiltered =
+  //   filter === "All"
+  //     ? dateFilteredHistory
+  //     : dateFilteredHistory.filter((tx) =>
+  //         filter === "Success" || filter === "Pending" || filter === "Failed"
+  //           ? tx.status === filter
+  //           : tx.type === filter
+  //       );
 
   const formatMoney = (x) => x.toLocaleString("en-NG");
 
@@ -138,7 +196,12 @@ const CusWallet = () => {
       <CustomerNav />
 
       <div className="customer-home container wallet-page">
-        <h2 className="page-title">Wallet</h2>
+        <div className="wallet-title-row">
+          <h2 className="page-title">Wallet</h2>
+          <Link to="/cus-walletsettings" className="wallet-settings-btn">
+            ⚙ Wallet Settings
+          </Link>
+        </div>
 
         {/* ================= BALANCE CARD ================= */}
         <div className="wallet-balance-card">
@@ -178,9 +241,28 @@ const CusWallet = () => {
               </button>
             ))}
           </div>
+          <div className="date-filters">
+            <div>
+              <label>Start Date</label>
+              <input
+                type="date"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label>End Date</label>
+              <input
+                type="date"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+              />
+            </div>
+          </div>
 
           <div className="transaction-list">
-            {filteredHistory.map((item) => (
+            {paginatedHistory.map((item) => (
               <div
                 className="transaction-card"
                 key={item.id}
@@ -224,6 +306,19 @@ const CusWallet = () => {
             ))}
           </div>
         </section>
+        <div className="pagination-controls">
+          <button onClick={prevPage} disabled={currentPage === 1}>
+            Prev
+          </button>
+
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
+
+          <button onClick={nextPage} disabled={currentPage === totalPages}>
+            Next
+          </button>
+        </div>
       </div>
       <FundWalletModal
         show={showFund}

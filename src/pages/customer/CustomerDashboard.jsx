@@ -121,6 +121,11 @@ const CustomerDashboard = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
+            <section className="quick-actions">
+              <Link to="/reservations" className="action-btn">
+                <FaChair size={20} /> Reserve Seat
+              </Link>
+            </section>
           </section>
 
           {/* ================= RECOMMENDED DISHES (SLIDER) ================= */}
@@ -161,22 +166,14 @@ const CustomerDashboard = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
+            <section className="quick-actions">
+              <Link to="/menu" className="action-btn">
+                <FaShoppingBag size={20} /> View Menu
+              </Link>
+            </section>
           </section>
 
           {/* ================= QUICK ACTIONS ================= */}
-          <section className="quick-actions">
-            <Link to="/reservations" className="action-btn">
-              <FaChair size={20} /> Reserve Seat
-            </Link>
-
-            <Link to="/menu" className="action-btn">
-              <FaShoppingBag size={20} /> View Menu
-            </Link>
-
-            <Link to="/notifications" className="action-btn">
-              <IoNotificationsOutline size={20} /> Notifications
-            </Link>
-          </section>
 
           {/* ================= RECENT ACTIVITY ================= */}
           <section className="section-block">
@@ -185,6 +182,11 @@ const CustomerDashboard = () => {
               <li>You booked Table 4 at Golden Spoon • Pending Approval</li>
               <li>Your order #4421 has been completed</li>
             </ul>
+          </section>
+          <section className="quick-actions">
+            <Link to="/notifications" className="action-btn">
+              <IoNotificationsOutline size={20} /> Notifications
+            </Link>
           </section>
         </div>
       </div>

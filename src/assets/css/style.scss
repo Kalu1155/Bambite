@@ -77,6 +77,7 @@ body {
 
 .home-push {
     padding-top: 9em;
+    padding-bottom: 5em;
 }
 
 .p-top {
@@ -96,3 +97,35 @@ body {
     font-style: italic;
     color: var(--secondary);
 }
+
+.success-modal, .error-modal {
+    background: #fff;
+    padding: 30px;
+    border-radius: 18px;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+  
+    h3 {
+      font-size: 1.4rem;
+      margin: 8px 0;
+    }
+  
+    p {
+      margin: 6px 0 18px;
+      color: #444;
+      font-size: .95rem;
+    }
+  }
+  
+  .success-icon {
+    font-size: 70px;
+    color: #06a84f;
+  }
+  
+  .error-icon {
+    font-size: 70px;
+    color: #d90429;
+  }
+  

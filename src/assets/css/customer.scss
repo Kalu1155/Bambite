@@ -423,12 +423,64 @@ cls
   padding-top: 110px; // avoid topbar overlap
   padding-bottom: 80px; // for bottom nav on mobile
 
-  .page-title {
-    font-size: 1.7rem;
-    font-weight: 700;
-    margin-bottom: 20px;
+  .wallet-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  
+    .wallet-settings-btn {
+      background: #000;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+    }
   }
-
+  
+  .date-filters {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+  
+    label {
+      font-size: 0.85rem;
+      color: #555;
+    }
+  
+    input {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      width: 160px;
+    }
+  }
+  
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    margin-top: 20px;
+  
+    button {
+      padding: 8px 14px;
+      background: #000;
+      color: #fff;
+      border-radius: 8px;
+      border: none;
+      font-size: 0.85rem;
+  
+      &:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+  
   /* ========== BALANCE CARD ========== */
   .wallet-balance-card {
     background: var(--primary);
@@ -742,4 +794,255 @@ cls
   &:hover {
     background: rgba(0,0,0,0.15);
   }
+}
+
+// wallet settings
+.wallet-settings-page {
+  padding-top: 110px;
+  padding-bottom: 80px;
+
+  .settings-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+  }
+
+  .settings-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 14px;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+
+    h3 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+
+      svg {
+        font-size: 22px;
+      }
+    }
+  }
+// Add bank account
+
+  /* BANK ACCOUNTS */
+  .bank-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    margin-bottom: 12px;
+
+    h4 {
+      font-size: 1rem;
+      margin-bottom: 3px;
+    }
+
+    p {
+      font-size: 0.85rem;
+      color: gray;
+    }
+
+    .primary-tag {
+      background: #e8f8ec;
+      color: #06a84f;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 6px;
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .icon-btn {
+        background: transparent;
+        border: none;
+        font-size: 22px;
+
+        &.delete {
+          color: #d90429;
+        }
+      }
+
+      .small-btn {
+        background: #000;
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .add-bank-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px dashed #aaa;
+    background: #fafafa;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  /* SECURITY */
+  .security-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .sec-action-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      background: #f7f7f7;
+      border-radius: 10px;
+      font-weight: 600;
+
+      svg {
+        font-size: 22px;
+      }
+    }
+  }
+
+  .toggle-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px 5px;
+  }
+
+  /* AUTO FUND */
+  .auto-fund-inputs {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+
+    input {
+      width: 120px;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+  }
+
+  /* DANGER ZONE */
+  .danger-zone {
+    border-left: 4px solid #d90429;
+
+    .danger-btn {
+      background: #d90429;
+      color: #fff;
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 1rem;
+      margin-top: 10px;
+
+      svg {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+/* MODAL OVERLAY */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+  padding: 20px;
+}
+
+/* ADD BANK MODAL */
+.add-bank-modal {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: popup 0.25s ease;
+}
+
+@keyframes popup {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .close-btnb {
+    background: transparent;
+    border: none;
+    font-size: 22px;
+  }
+}
+
+.modal-body {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+
+    span {
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    input,
+    select {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fafafa;
+      font-size: 1rem;
+    }
+  }
+}
+
+.modal-action-btn {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding: 14px;
+  margin-top: 20px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
 }
