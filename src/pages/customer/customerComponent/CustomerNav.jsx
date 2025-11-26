@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import {
-  RiHome2Line,
-  RiRestaurantLine,
-  RiMapPinLine,
-  RiWallet3Line,
-  RiNotification3Line,
-} from "react-icons/ri";
+import { RiNotification3Line } from "react-icons/ri";
+import { PiUserBold, PiShoppingCartSimpleBold } from "react-icons/pi";
 import { LuHouse, LuMapPin, LuUtensils, LuWallet } from "react-icons/lu";
 import logo from "../../../assets/images/bbmainedit.png";
-import { MdOutlineShoppingCart } from "react-icons/md";
+// import { MdOutlineShoppingCart } from "react-icons/md";
 import { TbHistoryToggle } from "react-icons/tb";
 
 const CustomerNav = () => {
@@ -59,7 +54,17 @@ const CustomerNav = () => {
           </li>
           <li>
             <NavLink to="/cart">
-              <MdOutlineShoppingCart /> <span>Cart</span>
+              <PiShoppingCartSimpleBold /> <span>Cart</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/profile">
+              <PiUserBold /> <span>Profile</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/support">
+              <PiUserBold /> <span>Support</span>
             </NavLink>
           </li>
         </ul>
@@ -84,7 +89,7 @@ const CustomerNav = () => {
         </NavLink>
 
         <NavLink to="/cart">
-          <MdOutlineShoppingCart size="25px" />
+          <PiShoppingCartSimpleBold size="25px" />
         </NavLink>
       </nav>
     </>

@@ -55,7 +55,8 @@ import Checkout from "./pages/customer/Checkout";
 import TrackingPage from "./pages/customer/TrackingPage";
 import SuccessPage from "./pages/customer/SuccessPage";
 import HistoryPage from "./pages/customer/HistoryPage";
-
+import Profile from "./pages/customer/Profile";
+import Support from "./pages/customer/Support";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -98,7 +99,8 @@ function App() {
           <Route path="tracking" element={<TrackingPage />} />
           <Route path="success" element={<SuccessPage />} />
           <Route path="history" element={<HistoryPage />} />
-
+          <Route path="profile" element={<Profile />} />
+          <Route path="support" element={<Support />} />
 
           {/* Merchant Routes */}
           <Route path="/become-a-merchant" element={<MerchantAuth />} />
