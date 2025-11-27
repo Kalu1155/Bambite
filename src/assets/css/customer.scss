@@ -2337,9 +2337,6 @@ cls
   }
 
   .chat-input {
-    position: fixed;
-    bottom: 65px;
-    left: 0;
     width: 100%;
     background: #fff;
     padding: 10px 16px;
@@ -2347,7 +2344,12 @@ cls
     align-items: center;
     gap: 10px;
     border-top: 1px solid #eee;
-
+  
+    /* MOBILE VIEW (bottom fixed) */
+    position: fixed;
+    bottom: 65px;
+    left: 0;
+  
     input {
       flex: 1;
       border-radius: 25px;
@@ -2356,7 +2358,7 @@ cls
       outline: none;
       font-size: .9rem;
     }
-
+  
     .send-btn {
       background: #000;
       color: #fff;
@@ -2366,10 +2368,22 @@ cls
       display: flex;
       align-items: center;
     }
-
+  
     .attach-btn {
       cursor: pointer;
       color: #555;
     }
   }
+  
+  /* DESKTOP FIX */
+  @media (min-width: 1024px) {
+    .chat-input {
+      position: sticky;
+      bottom: 0;
+      left: unset;
+      margin-top: 20px;
+      border-radius: 12px;
+    }
+  }
+  
 }

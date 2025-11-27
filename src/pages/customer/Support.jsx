@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TopBar from "./customerComponent/TopBar";
 import CustomerNav from "./customerComponent/CustomerNav";
 import { RiSendPlane2Line, RiAttachment2 } from "react-icons/ri";
+import { BiSupport } from "react-icons/bi";
 
 const Support = () => {
   const categories = [
@@ -67,7 +68,10 @@ const Support = () => {
 
       <div className="home-push customer-home container support-page">
         {/* PAGE TITLE */}
-        <h2 className="page-title">Support</h2>
+        <h2 className="page-title">
+          Support
+          <BiSupport />
+        </h2>
         <p className="ticket-id">Ticket ID: {ticketId}</p>
 
         {/* CATEGORIES */}

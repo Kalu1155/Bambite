@@ -6,6 +6,7 @@ import { LuHouse, LuMapPin, LuUtensils, LuWallet } from "react-icons/lu";
 import logo from "../../../assets/images/bbmainedit.png";
 // import { MdOutlineShoppingCart } from "react-icons/md";
 import { TbHistoryToggle } from "react-icons/tb";
+import { BiSupport } from "react-icons/bi";
 
 const CustomerNav = () => {
   return (
@@ -64,7 +65,7 @@ const CustomerNav = () => {
           </li>
           <li>
             <NavLink to="/support">
-              <PiUserBold /> <span>Support</span>
+              <BiSupport /> <span>Support</span>
             </NavLink>
           </li>
         </ul>
