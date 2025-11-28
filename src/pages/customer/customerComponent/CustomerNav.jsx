@@ -31,7 +31,7 @@ const CustomerNav = () => {
           </li>
 
           <li>
-            <NavLink to="/locations">
+            <NavLink to="/cus-location">
               <LuMapPin /> <span>Locations</span>
             </NavLink>
           </li>

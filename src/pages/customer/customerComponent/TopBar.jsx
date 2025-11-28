@@ -34,8 +34,9 @@ const TopBar = () => {
 
       {/* ===== RIGHT (Notifications + Avatar) ===== */}
       <div className="right-group all-screens-right">
-        <NavLink to="/notifications">
+        <NavLink to="/notifications" className="notif-wrapper">
           <RiNotification3Line className="top-icon" />
+          <span className="notif-badge">4</span>
         </NavLink>
 
         {/* ===== Mobile Avatar (small) ===== */}

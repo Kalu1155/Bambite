@@ -57,6 +57,8 @@ import SuccessPage from "./pages/customer/SuccessPage";
 import HistoryPage from "./pages/customer/HistoryPage";
 import Profile from "./pages/customer/Profile";
 import Support from "./pages/customer/Support";
+import NotificationPage from "./pages/customer/NotificationPage";
+import CusLocation from "./pages/customer/CusLocation";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -101,6 +103,8 @@ function App() {
           <Route path="history" element={<HistoryPage />} />
           <Route path="profile" element={<Profile />} />
           <Route path="support" element={<Support />} />
+          <Route path="notifications" element={<NotificationPage />} />
+          <Route path="cus-location" element={<CusLocation />} />
 
           {/* Merchant Routes */}
           <Route path="/become-a-merchant" element={<MerchantAuth />} />
